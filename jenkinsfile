@@ -1,0 +1,21 @@
+pipeline{
+    agent any
+    tools{
+        maven 'm1'
+    }
+    stages {
+  stage('checkout') {
+    steps {
+      checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'rajesh', url: 'https://github.com/Rajesh-jerubandi/Amazon-1.git']])
+    }
+  }
+  
+  stage('build') {
+    steps {
+      sh 'mvn clean install'
+    }
+  }
+
+}
+
+}
