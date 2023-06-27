@@ -9,9 +9,9 @@ pipeline{
       checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'rajesh', url: 'https://github.com/Rajesh-jerubandi/Amazon-1.git']])
     }
   }
-  stage('compile') {
+  stage('clean') {
     steps {
-      sh 'mvn compile'
+      sh 'mvn clean'
     }
   }
   stage('build') {
