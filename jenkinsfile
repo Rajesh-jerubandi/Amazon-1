@@ -15,7 +15,14 @@ pipeline{
       sh 'mvn clean install'
     }
   }
+  
+  post {
+  archiveArtifacts artifacts: 'Amazon-Core/target/*.war', followSymlinks: false
+}
 
+}
+
+}
 }
 
 }
